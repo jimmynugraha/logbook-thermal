@@ -1,0 +1,14 @@
+const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzvmbOcYt5KMNBBBCTK_Ix-WBMzEDEPOHwhzlobPkeWtvFOEA2tAnfSRXezAbod14wfQA/exec";
+
+async function kirimDataKeSheet(payload) {
+  try {
+    const res = await fetch(SCRIPT_URL, {
+      method: "POST",
+      body: JSON.stringify(payload)
+    });
+    alert("Data berhasil tersimpan langsung ke Google Sheets!");
+    location.reload();
+  } catch (err) {
+    alert("Gagal mengirim data: " + err.message);
+  }
+}
